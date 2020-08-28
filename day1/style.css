@@ -1,8 +1,7 @@
 body {
   height: 100vh;
   margin: 0;
-  background-image: url(./assets/bg-image-min.jpeg);
-  background-size: cover;
+  background: url(./assets/bg-image-min.jpeg) bottom center / cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,17 +9,17 @@ body {
 }
 
 .drums {
-  display: flex;
-}
-
-.key + .key {
-  margin-left: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, 100px);
+  width: 100%;
+  justify-content: center;
+  margin: 0 15px;
 }
 
 .key {
-  border: 3px solid rgb(5, 9, 31);
-  width: 100px;
   height: 100px;
+  border: 3px solid rgb(5, 9, 31);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -29,6 +28,7 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   transition: all 0.07s;
+  text-shadow: 0 0 0.5rem black;
 }
 
 .key kbd {
@@ -44,6 +44,6 @@ body {
 
 .key.playing {
   border: 3px solid #ffc600;
-  box-shadow: 0 0 10px 5px #ffc600;
+  box-shadow: 0 0 10px #ffc600;
   transform: scale(1.1);
 }
