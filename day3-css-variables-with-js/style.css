@@ -56,6 +56,7 @@ select {
   margin: 0 auto;
   border: 3px dashed var(--accent-color);
   padding: calc(var(--spacing) * 2);
+  border-radius: var(--border-radius);
 }
 
 .super-form label {
@@ -68,10 +69,10 @@ select {
 
 .super-form input,
 .super-form select {
-  padding: calc(var(--spacing) * 0.2);
+  padding: calc(var(--spacing) * 0.4);
   background-color: white;
   border: 1px solid gray;
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius) * 0.5);
 }
 
 .super-form input::placeholder {
