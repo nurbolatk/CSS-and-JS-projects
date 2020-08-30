@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  --spacing: 10px;
+  --border-radius: 0px;
+  --accent-color: #4682b4;
+}
+
+body {
+  background-color: honeydew;
+  color: #333;
+  font-size: 1.6rem;
+  font-family: monospace;
+}
+
+main {
+  width: 95%;
+  margin: 10rem auto;
+  padding: 3rem;
+  text-align: center;
+}
+
+.controls {
+  margin: 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls input + label {
+  margin-left: 2rem;
+}
+.controls label {
+  margin-right: 1rem;
+}
+
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.super-form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 3px dashed var(--accent-color);
+  padding: calc(var(--spacing) * 2);
+  border-radius: var(--border-radius);
+}
+
+.super-form label {
+  margin-bottom: calc(var(--spacing) * 0.4);
+}
+
+.super-form input + label {
+  margin-top: calc(var(--spacing) * 0.8);
+}
+
+.super-form input,
+.super-form select {
+  padding: calc(var(--spacing) * 0.4);
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: calc(var(--border-radius) * 0.5);
+}
+
+.super-form input::placeholder {
+  color: #b8b8b8;
+}
+
+.hl {
+  color: var(--accent-color);
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  .controls input + label {
+    margin: 2rem 0 0 0;
+  }
+
+  .controls input {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS variables with JS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h2>Hello, this is a super <span class="hl">customizable</span> form</h2>
+      <form class="controls">
+        <label for="border-radius">Border radius</label>
+        <input
+          type="range"
+          name="border-radius"
+          id="border-radius"
+          value="0"
+          min="0"
+          max="50"
+          data-sizing="px"
+        />
+        <label for="spacing">Spacing</label>
+        <input
+          type="range"
+          name="spacing"
+          id="spacing"
+          value="10"
+          min="5"
+          max="20"
+          data-sizing="px"
+        />
+        <label for="accent-color">Accent color</label>
+        <input
+          type="color"
+          name="accent-color"
+          id="accent-color"
+          value="#4682b4"
+        />
+      </form>
+
+      <form class="super-form">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="terminator2002@gmail.com"
+        />
+
+        <label for="food">Your favorite food</label>
+        <input
+          type="text"
+          name="food"
+          id="food"
+          placeholder="Manty, pizza, etc."
+        />
+
+        <label for="who">Apple or Epic Games?</label>
+        <select name="who" id="who">
+          <option value="apple">Apple</option>
+          <option value="epic">Epic Games</option>
+          <option value="google">Google!</option>
+        </select>
+      </form>
+    </main>
+    <script>
+      const controls = document.querySelectorAll('.controls input')
+
+      function handleUpdate(e) {
+        const { name, value } = e.target
+        const suffix = e.target.dataset.sizing || ''
+        document.documentElement.style.setProperty(`--${name}`, value + suffix)
+      }
+
+      controls.forEach(input => {
+        input.addEventListener('change', handleUpdate)
+        input.addEventListener('mousemove', handleUpdate)
+      })
+    </script>
+  </body>
+</html>
