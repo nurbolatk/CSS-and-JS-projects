@@ -37,19 +37,19 @@ p {
 }
 
 .panel1 {
-  background-image: url(https://sun3.dataix-kz-akkol.userapi.com/221G7SEvnBb_xyKRz-3qKCBNjZpjEkdvh7wUYA/-C9OR7WqzIQ.jpg);
+  background-image: url(./img/bg1.jpg);
 }
 .panel2 {
-  background-image: url(https://sun1.dataix-kz-akkol.userapi.com/-eQAI-Cvi1MDOKoIAhcJWKqOpsvzAPjYt7vOBw/jGtTmEIQh3c.jpg);
+  background-image: url(./img/bg2.jpg);
 }
 .panel3 {
-  background-image: url(https://sun1.dataix-kz-akkol.userapi.com/PDcCJ9gWvCxwmwDZT-ZdRwRIljj_OzDm-KhNdA/jNbc_rdbrSE.jpg);
+  background-image: url(./img/bg3.jpg);
 }
 .panel4 {
-  background-image: url(https://sun2.dataix-kz-akkol.userapi.com/Am9-hjMcKPzy4qH_mfIG95Vzr1rTbrI8x98c5w/qcMGZmihXRU.jpg);
+  background-image: url(./img/bg4.jpg);
 }
 .panel5 {
-  background-image: url(https://sun4.dataix-kz-akkol.userapi.com/Wq-k2gy5Ga57z3aeZLExWQ_t1yDhKBbS77_8uQ/RJ9qw0yk1Ck.jpg);
+  background-image: url(./img/bg5.jpg);
 }
 
 .panel > * {
