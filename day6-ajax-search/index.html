@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <form class="search-box">
+        <input type="text" class="search" placeholder="City or state name" />
+        <ul class="search-results">
+          <li>Filter for a city</li>
+          <li>Or state</li>
+        </ul>
+      </form>
+    </main>
+    <script>
+      const endpoint =
+        'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json'
+      const cities = []
+
+      fetch(endpoint)
+        .then(blob => blob.json())
+        .then(data => cities.push(...data))
+
+      const findMatch = (wordToMatch, cities) => {
+        const regex = new RegExp(wordToMatch, 'gi')
+        return cities.filter(
+          place => regex.test(place.city) || regex.test(place.state)
+        )
+      }
+
+      function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+      }
+
+      const performSearch = e => {
+        const { value } = e.currentTarget
+        const results = findMatch(value, cities)
+        const html = results
+          .map(place => {
+            const regex = new RegExp(value, 'gi')
+            const cityName = place.city.replace(
+              regex,
+              `<span class="hl">${value}</span>`
+            )
+            const stateName = place.state.replace(
+              regex,
+              `<span class="hl">${value}</span>`
+            )
+
+            return `
+              <li>
+                <span class="place-name">${cityName}, ${stateName}</span>
+                <span class="place-population">${numberWithCommas(
+                  place.population
+                )}</span>
+              </li>
+            `
+          })
+          .join('')
+        searchResultsList.innerHTML = html
+      }
+
+      const searchResultsList = document.querySelector('.search-results')
+      const search = document.querySelector('.search')
+      search.addEventListener('change', performSearch)
+      search.addEventListener('keyup', performSearch)
+    </script>
+  </body>
+</html>
