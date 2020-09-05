@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hold shift to select multiple checkboxes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="inbox">
+      <div class="item">
+        <input type="checkbox" id="check1" />
+        <label for="check1">This is an inbox layout.</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check2" />
+        <label for="check2">You can check a single item one by one</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check3" />
+        <label for="check3">And check multiple items with shift</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check4" />
+        <label for="check4">First, check one item</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check5" />
+        <label for="check5">Then hold shift key and check another item</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check6" />
+        <label for="check6">All items in between should be also checked</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check7" />
+        <label for="check7">This is done in pure JS</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check8" />
+        <label for="check8">Buy milk and Nesquik</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check9" />
+        <label for="check9">Learn JS and create awesome stuff</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check10" />
+        <label for="check10">Save the world</label>
+      </div>
+      <div class="item">
+        <input type="checkbox" id="check11" />
+        <label for="check11">And watch anime</label>
+      </div>
+    </div>
+    <script>
+      let lastChecked = null
+
+      const inputs = document.querySelectorAll('input[type="checkbox"]')
+
+      inputs.forEach(input =>
+        input.addEventListener('click', handleCheckboxChane)
+      )
+
+      function handleCheckboxChane(e) {
+        if (e.shiftKey && this.checked) {
+          let inBetween = false
+          inputs.forEach(input => {
+            if (input === this || input === lastChecked) {
+              inBetween = !inBetween
+            }
+            if (inBetween) {
+              input.checked = true
+            }
+          })
+        }
+        lastChecked = this
+      }
+    </script>
+  </body>
+</html>
