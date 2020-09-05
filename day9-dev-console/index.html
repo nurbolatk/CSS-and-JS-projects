@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Console and dev tools</title>
+  </head>
+  <body>
+    <p>F12 ))</p>
+    <script>
+      const dogs = [
+        { name: 'Snickers', age: 2 },
+        { name: 'hugo', age: 8 },
+      ]
+      // Regular
+      console.log('aha')
+      // Interpolated
+      console.log('aha %s', 'haha')
+
+      // Styled
+      console.log(
+        '%c something special happened',
+        'background-color: tomato; font-size: 24px;'
+      )
+
+      // warning!
+      console.warn('did you do your homeworks?')
+      // Error :|
+
+      console.error('Oh no!')
+      // Info
+      console.info(
+        'Today will be yesterday tomorrow, yesterday today was tomorrow'
+      )
+      // Testing
+      const p = document.querySelector('p')
+      console.assert(
+        p.classList.contains('right-class'),
+        'You selected wrong paragraph!'
+      )
+
+      // clearing
+      // console.clear()
+
+      // Viewing DOM Elements
+      console.dir(p)
+      // Grouping together
+      console.group('obvious')
+      console.log('This is written in JS')
+      console.log('JS is the best language in the world')
+      console.log('Even better than CSS')
+      console.groupEnd('obvious')
+      // counting
+      console.count('Hai!')
+      console.count('Hai!')
+      console.count('Hai!')
+      console.count('Yes!')
+      console.count('Hai!')
+
+      // timing
+      console.time('timer')
+      setTimeout(() => console.timeEnd('timer'), 500)
+    </script>
+  </body>
+</html>
