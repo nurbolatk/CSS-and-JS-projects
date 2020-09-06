@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: steelblue;
+}
+
+.player {
+  position: relative;
+  max-width: 1280px;
+  color: #fff;
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+/* This css is only applied when fullscreen is active. */
+.player:fullscreen {
+  max-width: none;
+  width: 100%;
+}
+
+.player:-webkit-full-screen {
+  max-width: none;
+  width: 100%;
+}
+
+.player-video {
+  width: 100%;
+}
+
+.player:hover .player-controls {
+  transform: translateY(0);
+}
+
+.player-controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  transform: translateY(100%);
+  transition: transform 0.15s;
+}
+
+.player-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  padding: 6px;
+}
+
+.toggle-play {
+  height: 26px;
+  width: 26px;
+  padding: 0;
+}
+
+.progress {
+  background-color: #333;
+  height: 10px;
+  flex-basis: 100%;
+  display: flex;
+  cursor: w-resize;
+}
+
+.progress-filled {
+  height: 100%;
+  background-color: #bac430;
+  flex-basis: 0%;
+}
+
+.player-slider + .player-button {
+  margin-left: auto;
+}
