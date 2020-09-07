@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secret Keys</title>
+    <script
+      type="text/javascript"
+      src="https://www.cornify.com/js/cornify.js"
+    ></script>
+  </head>
+  <body>
+    type <span id="secret-word"></span> 👀
+  </body>
+
+  <script>
+    const pressed = []
+    const secretWord = 'wesbos'
+    document.querySelector('#secret-word').textContent = secretWord
+
+    let i = 0
+    document.addEventListener('keyup', e => {
+      if (e.key === secretWord[i]) {
+        i++
+      } else {
+        i = 0
+      }
+      if (i === secretWord.length) {
+        cornify_add()
+        i = 0
+      }
+    })
+  </script>
+</html>
