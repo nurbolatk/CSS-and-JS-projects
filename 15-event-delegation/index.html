@@ -38,16 +38,65 @@
     </svg>
     <div class="wrapper">
       <h2>Local Tacas</h2>
-      <ul class="plates">
-        <li class="plate">
-          <input type="checkbox" id="check-all" />
-          <label for="check-all">Check all</label>
-        </li>
-      </ul>
+      <ul class="plates"></ul>
       <form class="add-taco">
-        <input type="text" />
+        <input type="text" name="new-item" />
         <input type="submit" value="+ Add taco" />
       </form>
     </div>
+
+    <script>
+      const addTacoForm = document.querySelector('.add-taco')
+      const plateList = document.querySelector('.plates')
+      let items = JSON.parse(localStorage.getItem('items')) || []
+
+      const saveToLocalStorage = items => {
+        localStorage.setItem('items', JSON.stringify(items))
+      }
+
+      const generateItemHtml = (item, index) => `
+          <li class="plate">
+            <input type="checkbox" data-index="${index}" id="item${index}" ${
+        item.done ? 'checked' : ''
+      } />
+            <label for="item${index}">${item.text}</label>
+          </li>
+        `
+
+      const appendItemToList = (item, index, itemList) => {
+        itemList.insertAdjacentHTML('beforeend', generateItemHtml(item, index))
+      }
+
+      const addItem = e => {
+        e.preventDefault()
+        const text = e.currentTarget['new-item'].value
+        const item = {
+          done: false,
+          text,
+        }
+        e.currentTarget.reset()
+        const length = items.push(item)
+        appendItemToList(item, length - 1, plateList)
+        saveToLocalStorage(items)
+      }
+
+      const populateList = (items, itemList) => {
+        const HTML = items
+          .map((item, index) => generateItemHtml(item, index))
+          .join('')
+        itemList.insertAdjacentHTML('beforeend', HTML)
+      }
+
+      addTacoForm.addEventListener('submit', addItem)
+      const toggleItems = e => {
+        if (!e.target.matches('.plate input[type="checkbox"]')) return false
+
+        const { index } = e.target.dataset
+        items[index].done = !items[index].done
+        saveToLocalStorage(items)
+      }
+      plateList.addEventListener('click', toggleItems)
+      populateList(items, plateList)
+    </script>
   </body>
 </html>
