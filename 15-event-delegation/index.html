@@ -55,11 +55,12 @@
       }
 
       const generateItemHtml = (item, index) => `
-          <li class="plate">
-            <input type="checkbox" data-index="${index}" id="item${index}" ${
+          <li class="plate" data-index="${index}">
+            <input type="checkbox" id="item${index}" ${
         item.done ? 'checked' : ''
       } />
             <label for="item${index}">${item.text}</label>
+            <button class="delete">🗑</button>
           </li>
         `
 
@@ -70,6 +71,7 @@
       const addItem = e => {
         e.preventDefault()
         const text = e.currentTarget['new-item'].value
+        if (!text.length) return
         const item = {
           done: false,
           text,
@@ -84,17 +86,26 @@
         const HTML = items
           .map((item, index) => generateItemHtml(item, index))
           .join('')
-        itemList.insertAdjacentHTML('beforeend', HTML)
+        itemList.innerHTML = HTML
       }
 
       addTacoForm.addEventListener('submit', addItem)
-      const toggleItems = e => {
-        if (!e.target.matches('.plate input[type="checkbox"]')) return false
 
-        const { index } = e.target.dataset
-        items[index].done = !items[index].done
-        saveToLocalStorage(items)
+      const toggleItems = e => {
+        if (e.target.matches('.delete')) {
+          // delete item
+          const { index } = e.target.parentElement.dataset
+          items.splice(index, 1)
+          saveToLocalStorage(items)
+          e.target.parentElement.remove()
+        } else if (e.target.matches('.plate input[type="checkbox"]')) {
+          // toggle checkbox
+          const { index } = e.target.parentElement.dataset
+          items[index].done = !items[index].done
+          saveToLocalStorage(items)
+        }
       }
+
       plateList.addEventListener('click', toggleItems)
       populateList(items, plateList)
     </script>

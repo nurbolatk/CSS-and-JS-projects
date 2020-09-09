@@ -97,3 +97,9 @@ input[type='checkbox']:checked + label::before {
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.6);
 }
+
+.delete {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
