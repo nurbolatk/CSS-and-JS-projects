@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fire</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hero">
+      <h1 contenteditable="">😍 Awesome website</h1>
+    </div>
+    <script>
+      const hero = document.querySelector('.hero')
+      const text = document.querySelector('h1')
+
+      const spread = 100
+
+      const shadow = e => {
+        const { offsetHeight: height, offsetWidth: width } = e.currentTarget
+        let { offsetX: x, offsetY: y } = e
+        if (e.currentTarget !== e.target) {
+          x += e.target.offsetLeft
+          y += e.target.offsetTop
+        }
+        const shadowX = Math.round((x / width) * spread - spread / 2) * -1
+        const shadowY = Math.round((y / height) * spread - spread / 2) * -1
+
+        text.style.textShadow = `${shadowX}px ${shadowY}px 0 rgba(0,0,0, 0.2)`
+      }
+
+      hero.addEventListener('mousemove', shadow)
+    </script>
+  </body>
+</html>

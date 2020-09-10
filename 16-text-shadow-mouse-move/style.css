@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='80' height='96' viewport='0 0 100 100' style='fill:black;font-size:48px;'><text y='50%'>🔥</text></svg>")
+      0 0,
+    auto; /*!emojicursor.app*/
+}
+
+.hero {
+  height: 100vh;
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+      230deg,
+      rgba(238, 174, 202, 1),
+      rgba(148, 187, 233, 1),
+      rgba(238, 174, 202, 1)
+    )
+    0% 0% / 300% 300%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: gradient 15s ease infinite;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 3.6rem;
+  color: #2b2e2e;
+  margin: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
