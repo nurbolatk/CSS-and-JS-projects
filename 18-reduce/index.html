@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reduce</title>
+    <style>
+      .videos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="videos">
+      <li data-time="5:43">Video 1 - <strong>5:43</strong></li>
+      <li data-time="2:33">Video 2 - <strong>2:33</strong></li>
+      <li data-time="3:45">Video 3 - <strong>3:45</strong></li>
+      <li data-time="0:47">Video 4 - <strong>0:47</strong></li>
+      <li data-time="5:21">Video 5 - <strong>5:21</strong></li>
+      <li data-time="6:56">Video 6 - <strong>6:56</strong></li>
+      <li data-time="3:46">Video 7 - <strong>3:46</strong></li>
+      <li data-time="5:25">Video 8 - <strong>5:25</strong></li>
+      <li data-time="3:14">Video 9 - <strong>3:14</strong></li>
+      <li data-time="3:31">Video 10 - <strong>3:31</strong></li>
+      <li data-time="5:59">Video 11 - <strong>5:59</strong></li>
+      <li data-time="3:07">Video 12 - <strong>3:07</strong></li>
+      <li data-time="11:29">Video 13 - <strong>11:29</strong></li>
+      <li data-time="8:57">Video 14 - <strong>8:57</strong></li>
+      <li data-time="5:49">Video 15 - <strong>5:49</strong></li>
+      <li data-time="5:52">Video 16 - <strong>5:52</strong></li>
+      <li data-time="5:50">Video 17 - <strong>5:50</strong></li>
+      <li data-time="9:13">Video 18 - <strong>9:13</strong></li>
+      <li data-time="11:51">Video 19 - <strong>11:51</strong></li>
+      <li data-time="7:58">Video 20 - <strong>7:58</strong></li>
+      <li data-time="4:40">Video 21 - <strong>4:40</strong></li>
+      <li data-time="4:45">Video 22 - <strong>4:45</strong></li>
+      <li data-time="6:46">Video 23 - <strong>6:46</strong></li>
+      <li data-time="7:24">Video 24 - <strong>7:24</strong></li>
+      <li data-time="7:12">Video 25 - <strong>7:12</strong></li>
+      <li data-time="5:23">Video 26 - <strong>5:23</strong></li>
+      <li data-time="3:34">Video 27 - <strong>3:34</strong></li>
+      <li data-time="8:22">Video 28 - <strong>8:22</strong></li>
+      <li data-time="5:17">Video 29 - <strong>5:17</strong></li>
+      <li data-time="3:10">Video 30 - <strong>3:10</strong></li>
+      <li data-time="4:43">Video 31 - <strong>4:43</strong></li>
+      <li data-time="19:43">Video 32 - <strong>19:43</strong></li>
+      <li data-time="0:47">Video 33 - <strong>0:47</strong></li>
+      <li data-time="0:47">Video 34 - <strong>0:47</strong></li>
+      <li data-time="3:14">Video 35 - <strong>3:14</strong></li>
+      <li data-time="3:59">Video 36 - <strong>3:59</strong></li>
+      <li data-time="2:43">Video 37 - <strong>2:43</strong></li>
+      <li data-time="4:17">Video 38 - <strong>4:17</strong></li>
+      <li data-time="6:56">Video 39 - <strong>6:56</strong></li>
+      <li data-time="3:05">Video 40 - <strong>3:05</strong></li>
+      <li data-time="2:06">Video 41 - <strong>2:06</strong></li>
+      <li data-time="1:59">Video 42 - <strong>1:59</strong></li>
+      <li data-time="1:49">Video 43 - <strong>1:49</strong></li>
+      <li data-time="3:36">Video 44 - <strong>3:36</strong></li>
+      <li data-time="7:10">Video 45 - <strong>7:10</strong></li>
+      <li data-time="3:44">Video 46 - <strong>3:44</strong></li>
+      <li data-time="3:44">Video 47 - <strong>3:44</strong></li>
+      <li data-time="4:36">Video 48 - <strong>4:36</strong></li>
+      <li data-time="3:16">Video 49 - <strong>3:16</strong></li>
+      <li data-time="1:10">Video 50 - <strong>1:10</strong></li>
+      <li data-time="6:10">Video 51 - <strong>6:10</strong></li>
+      <li data-time="2:14">Video 52 - <strong>2:14</strong></li>
+      <li data-time="3:44">Video 53 - <strong>3:44</strong></li>
+      <li data-time="5:05">Video 54 - <strong>5:05</strong></li>
+      <li data-time="6:03">Video 55 - <strong>6:03</strong></li>
+      <li data-time="12:39">Video 56 - <strong>12:39</strong></li>
+      <li data-time="1:56">Video 57 - <strong>1:56</strong></li>
+      <li data-time="4:04">Video 58 - <strong>4:04</strong></li>
+    </ul>
+    <script>
+      const videos = Array.from(document.querySelectorAll('[data-time]'))
+      const seconds = videos
+        .map(video => video.dataset.time)
+        .map(time => {
+          const [mins, secs] = time.split(':').map(parseFloat)
+          return mins * 60 + secs
+        })
+        .reduce((total, cur) => total + cur, 0)
+
+      let secondsLeft = seconds
+      const hours = Math.floor(secondsLeft / 3600)
+      secondsLeft = secondsLeft % 3600
+      const mins = Math.floor(secondsLeft / 60)
+      secondsLeft = secondsLeft % 60
+
+      const p = document.createElement('p')
+      p.textContent = `Total time is ${hours}:${mins}:${secondsLeft}`
+      document.querySelector('.videos').insertAdjacentElement('afterend', p)
+    </script>
+  </body>
+</html>
