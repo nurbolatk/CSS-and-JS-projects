@@ -1,0 +1,53 @@
+body {
+  background-color: dodgerblue;
+}
+
+.photobooth {
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  max-width: 900px;
+  width: 95%;
+  margin: 2rem auto;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+  position: absolute;
+}
+
+.player {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 224px;
+  height: 168px;
+  display: block;
+}
+
+.canvas {
+  width: 100%;
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 120px);
+  padding: 1rem;
+  background-color: aliceblue;
+  gap: 4px;
+}
+
+.strip a {
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #eee;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.strip a img {
+  display: block;
+  width: 100%;
+}

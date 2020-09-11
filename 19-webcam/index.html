@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unreal webcam</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="photobooth">
+      <button class="controls" onClick="takePhoto()">Take Photo</button>
+      <canvas class="canvas"></canvas>
+      <video class="player"></video>
+      <div class="strip"></div>
+    </div>
+
+    <audio class="snap" src="./snap.mp3" hidden></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
