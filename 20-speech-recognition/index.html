@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech recognition</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="header">
+        <h2>Start speaking...</h2>
+        <p>Language:</p>
+        <button id="lang">ENG</button>
+      </div>
+    </main>
+    <script>
+      const pageTitle = document.querySelector('h2')
+      const langLabel = document.querySelector('h2 + p')
+      const langChangeBtn = document.querySelector('#lang')
+      const words = document.querySelector('main')
+
+      const languages = ['en-US', 'ru']
+      const keywords = ['unicorn', 'единорог']
+      const labels = [
+        {
+          pageTitle: 'Start speaking...',
+          langLabel: 'Language: ',
+          buttonLabel: 'ENG',
+        },
+        {
+          pageTitle: 'Начните говорить',
+          langLabel: 'Язык: ',
+          buttonLabel: 'РУС',
+        },
+      ]
+
+      let currentLanguage = 0
+
+      langChangeBtn.addEventListener('click', () => {
+        pageTitle.textContent = labels[currentLanguage].pageTitle
+        langLabel.textContent = labels[currentLanguage].langLabel
+        langChangeBtn.textContent = labels[currentLanguage].buttonLabel
+
+        recognition.stop()
+        currentLanguage = (currentLanguage + 1) % languages.length
+        recognition.lang = languages[currentLanguage]
+      })
+
+      window.SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition
+
+      const recognition = new SpeechRecognition()
+      recognition.interimResults = true
+
+      recognition.lang = languages[currentLanguage]
+
+      let p = document.createElement('p')
+      words.appendChild(p)
+
+      recognition.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+          .map(res => res[0])
+          .map(res => res.transcript)
+          .join('')
+
+        if (transcript.includes(keywords[currentLanguage])) {
+          const regexp = new RegExp(keywords[currentLanguage], 'gi')
+          transcript = transcript.replace(regexp, '🦄')
+        }
+        p.textContent = transcript
+
+        if (e.results[0].isFinal) {
+          p = document.createElement('p')
+          words.appendChild(p)
+        }
+        console.log('wtf')
+      })
+
+      recognition.addEventListener('end', recognition.start)
+      recognition.start()
+    </script>
+  </body>
+</html>
