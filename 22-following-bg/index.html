@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Follow me!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <nav>
+        <a href="#" id="home">Home</a>
+        <a href="#">Is where</a>
+        <a href="#">the pants</a>
+        <a href="#">Aren't</a>
+        <a href="#">Contact me</a>
+      </nav>
+      <p>
+        Lorem ipsum dolor sit amet. You are <a href="#">wonderful</a>. Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. Excepturi veritatis
+        illum quisquam alias velit molestias praesentium, officiis quos nihil at
+        nobis tempora dolorum. Totam maiores assumenda expedita repellendus
+        error amet minus distinctio dolorum ab sapiente, voluptates illum,
+        dolorem quisquam veritatis quis qui repellat praesentium autem!
+      </p>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum voluptate,
+        maiores dolores earum praesentium accusamus rem corrupti.
+        <a href="#">Middle link</a>. Voluptatibus eaque quisquam officia
+        necessitatibus quia itaque pariatur illum ut? Officia nobis sunt ipsa,
+        cupiditate, quibusdam culpa magnam, similique fugit soluta reiciendis
+        totam dolor esse recusandae animi. Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Ratione et impedit omnis voluptatibus vero
+        qui ducimus! Error voluptate neque possimus excepturi, soluta pariatur
+        accusamus. Asperiores nemo vitae quo veritatis voluptate quis natus ut
+        debitis. Incidunt dolorum, aspernatur hic corrupti illum dicta tenetur
+        officiis a nostrum, facilis expedita consequatur nisi! Maxime enim autem
+        fugit, ab eaque officiis neque in qui excepturi.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ipsum
+        temporibus consequatur qui odio perspiciatis impedit, ipsa repellat sint
+        quis sunt vel!
+      </p>
+      <p>
+        Very long text Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Similique adipisci dignissimos assumenda quas iure vitae tenetur
+        incidunt enim quam temporibus nulla molestiae voluptates veritatis ut
+        dolorem, repudiandae blanditiis impedit. Tenetur nihil assumenda quod
+        nostrum laboriosam cum autem excepturi blanditiis nemo dolorem,
+        obcaecati provident impedit? Cupiditate, sunt veniam rem assumenda
+        itaque dignissimos non enim voluptatibus tenetur libero saepe iure rerum
+        beatae labore laboriosam provident expedita laborum ducimus accusamus
+        tempore maxime aliquid architecto! Neque assumenda minima veritatis sunt
+        debitis suscipit ab, modi vel ea doloremque, eveniet perspiciatis
+        voluptate voluptatibus voluptatem explicabo. Enim, nostrum autem velit
+        molestias ad nemo earum ab omnis quam. <a href="#">Bye</a>
+      </p>
+      <hr />
+    </main>
+    <script>
+      const triggers = document.querySelectorAll('a')
+      const highlight = document.createElement('span')
+      document.body.appendChild(highlight)
+
+      const homeLink = document.getElementById('home')
+      positionHighlight(homeLink)
+      highlight.classList.add('highlight')
+
+      function positionHighlight(target) {
+        const rect = target.getBoundingClientRect()
+        const coords = {
+          width: rect.width,
+          height: rect.height,
+          top: rect.top + window.scrollY,
+          left: rect.left + window.scrollX,
+        }
+        highlight.style.width = `${coords.width}px`
+        highlight.style.height = `${coords.height}px`
+        highlight.style.top = `${coords.top}px`
+        highlight.style.left = `${coords.left}px`
+      }
+
+      function followBg(e) {
+        positionHighlight(e.currentTarget)
+      }
+
+      triggers.forEach(link => link.addEventListener('mouseenter', followBg))
+    </script>
+  </body>
+</html>
