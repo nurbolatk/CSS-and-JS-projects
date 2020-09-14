@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  min-height: 100vh;
+  background-color: palegreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  max-width: 40rem;
+  width: 95%;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card > * {
+  padding: 2.2rem;
+}
+
+.card-header {
+  background-color: #ffc600;
+  padding: 2.2rem;
+  font-family: 'Cookie', cursive;
+  font-size: 4rem;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+}
+
+button {
+  background-color: #ffc600;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 3px;
+  font-size: 2rem;
+  transition: all 0.2s;
+  font-family: 'Cookie', cursive;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ecb900;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+select {
+  border: none;
+  background-color: #f1f1f1;
+  font-size: inherit;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.5rem;
+}
+
+textarea {
+  margin-top: 2rem;
+  border: none;
+  background-color: #f1f1f1;
+  padding: 1rem;
+  text-align: start;
+}
+
+#speed {
+  margin-bottom: 1rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+/* range sliders*/
+
+input[type='range'] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type='range']:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* THUMB*/
+
+/* Special styling for WebKit/Blink */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  background: #ffc600;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Add cool effects to your sliders! */
+  cursor: pointer;
+  transform: translateY(-5px);
+  /* margin-top: -14px; You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type='range']::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  background: #ffc600;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Add cool effects to your sliders! */
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type='range']::-ms-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  background: #ffc600;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Add cool effects to your sliders! */
+  cursor: pointer;
+}
+
+/* TRACK */
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 12px 0;
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  border-radius: 3px;
+  background: #f1f1f1;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+input[type='range']::-ms-fill-upper {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  background: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
