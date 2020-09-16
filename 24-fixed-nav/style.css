@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eee;
+}
+p {
+  margin-bottom: 2rem;
+}
+
+header {
+  background: url(./header-bg.jpg) center / cover;
+  height: 369px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-size: 8rem;
+  font-family: 'Courgette', cursive;
+  font-weight: normal;
+  letter-spacing: 1.2px;
+  text-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  background-color: #333;
+  color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  height: 69px;
+}
+
+nav ul li {
+  padding: 1.5rem;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav ul li:hover {
+  color: palevioletred;
+}
+
+.logo {
+  background-color: #fff;
+  color: #333;
+  max-width: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.site-wrap {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 95%;
+  margin: 10rem auto;
+  padding: 3rem;
+  line-height: 1.65;
+  transform: scale(0.99);
+  transition: transform 0.4s;
+}
+
+.fixed-top nav {
+  position: fixed;
+}
+.fixed-top .site-wrap {
+  transform: scale(1);
+}
+.fixed-top .logo {
+  max-width: 500px;
+}
