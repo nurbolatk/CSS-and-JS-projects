@@ -21,7 +21,7 @@ p {
 
 header {
   background: url(./header-bg.jpg) center / cover;
-  height: 369px;
+  height: 39vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ header {
 
 h1 {
   color: white;
-  font-size: 8rem;
+  font-size: 6.9vw;
   font-family: 'Courgette', cursive;
   font-weight: normal;
   letter-spacing: 1.2px;
@@ -73,6 +73,7 @@ nav ul li:hover {
   max-width: 0;
   overflow: hidden;
   padding: 0;
+  font-weight: bolder;
 }
 
 .site-wrap {
@@ -80,8 +81,7 @@ nav ul li:hover {
   border-radius: 3px;
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
   max-width: 800px;
-  width: 95%;
-  margin: 10rem auto;
+  margin: 7rem auto;
   padding: 3rem;
   line-height: 1.65;
   transform: scale(0.99);
@@ -90,6 +90,7 @@ nav ul li:hover {
 
 .fixed-top nav {
   position: fixed;
+  box-shadow: 0 3px 11px rgba(0, 0, 0, 0.15);
 }
 .fixed-top .site-wrap {
   transform: scale(1);
