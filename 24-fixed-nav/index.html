@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixed nav</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header><h1>Oh pretty baby</h1></header>
+    <nav>
+      <ul>
+        <li class="logo">Lost</li>
+        <li>I wanna</li>
+        <li>hold</li>
+        <li>you</li>
+        <li>so much</li>
+      </ul>
+    </nav>
+    <section class="site-wrap">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum
+        ullam provident et molestiae quae voluptatum iste consequatur cupiditate
+        sunt, unde amet in, hic minus quam dolore molestias! Culpa aspernatur,
+        quasi autem ratione hic optio fugit soluta cupiditate! Culpa enim
+        accusantium distinctio praesentium dolorum provident autem beatae
+        eligendi. Quis nemo repellat facilis facere unde hic reiciendis illo
+        magnam! Ducimus voluptates, ex alias saepe reiciendis, nisi pariatur
+        odio incidunt autem deleniti molestiae eligendi? Hic repellendus
+        consectetur quod rerum esse quisquam, obcaecati saepe non sapiente rem
+        doloribus expedita minima tempore at accusantium. Voluptates, iste!
+        Libero possimus nobis molestias temporibus minima quos reprehenderit
+        consequuntur. Voluptas obcaecati, laudantium corrupti sint, mollitia
+        doloremque id possimus velit iusto, labore quaerat accusantium magni
+        iure at officia quia nobis error dolorum necessitatibus provident iste
+        eum praesentium asperiores? Dignissimos dolores error quas sint
+        consequatur itaque, illum saepe eius cumque facere suscipit sed quidem
+        est veritatis numquam assumenda odit. Tenetur, esse molestiae. Quisquam,
+        repellendus. Maiores, deleniti? Obcaecati, cum? Delectus architecto vero
+        minima est, vitae eaque, atque quasi odio rem porro voluptatum itaque
+        qui fugit asperiores assumenda sint voluptate omnis temporibus tenetur.
+        Earum placeat eius deleniti. Dignissimos exercitationem doloremque
+        commodi neque a quis molestias, corporis voluptatibus ipsum sed, labore
+        voluptate provident sapiente ab?
+      </p>
+      <p>
+        Ea magnam, impedit porro hic vel atque iusto saepe corporis voluptas rem
+        odio aspernatur praesentium fugiat itaque architecto quibusdam explicabo
+        at voluptatum illum molestiae dolore id earum? Ipsum, reiciendis
+        molestias veniam blanditiis minus officia. Labore culpa eveniet
+        blanditiis molestias officia debitis perferendis explicabo repellat
+        obcaecati a, ut laudantium nostrum totam cum aut magnam quos porro sequi
+        voluptatum ducimus doloribus neque dolorum voluptatibus quas. Odio ut,
+        quae maxime est corrupti repellat excepturi consequuntur alias, libero
+        officiis omnis voluptatibus, explicabo sint nemo recusandae minima
+        itaque? Molestias consequatur excepturi voluptate architecto autem
+        itaque modi? Quia sequi ullam ad repellendus facilis iure minus, dolores
+        corrupti possimus quas vero dolor ea quae reiciendis quidem? Repellat,
+        ipsum blanditiis veritatis saepe rerum aut sequi earum quas explicabo
+        est repellendus amet maiores aperiam aliquid laborum, eum eos
+        distinctio! Dicta, eaque? Eveniet illum alias praesentium sed mollitia.
+        Accusantium ratione aspernatur minima adipisci nulla error! Quasi atque
+        quisquam dolorum, ex ipsa quis libero cumque cum nisi et debitis
+        molestiae expedita voluptate totam hic voluptatibus pariatur maxime
+        porro blanditiis incidunt consequuntur sint quidem voluptates!
+        Blanditiis expedita, placeat asperiores eius veritatis beatae eaque
+        dolorem quasi praesentium itaque possimus minus quaerat dicta ducimus ex
+        rerum. Cumque dolore modi magnam eveniet ad distinctio deserunt. Aliquid
+        doloremque quas facere aut fugit, culpa tenetur vitae quis. Magnam,
+        voluptate. Voluptate velit quos quibusdam laudantium tenetur delectus
+        consectetur fuga rem laborum, dolore voluptas numquam fugiat quod
+        debitis enim doloremque ex odit dolorem officia, ipsa vero, eum rerum
+        perspiciatis at? Fugiat, harum! Dolor eos, saepe soluta mollitia harum
+        minima facilis, ab sint vero in obcaecati quibusdam deserunt id! Amet
+        quaerat hic ipsam placeat numquam? Ut aperiam quae illo suscipit nemo
+        eligendi sit, facere beatae consectetur harum ea nulla eaque? Tempore
+        voluptas sint adipisci voluptates dolor, atque velit perspiciatis
+        officia quasi saepe. Expedita consectetur ipsum quis velit reprehenderit
+        sapiente? Dignissimos dicta atque unde accusantium totam quo aperiam
+        sequi adipisci laudantium error consectetur nam blanditiis ut iure,
+        obcaecati repudiandae harum consequuntur voluptatum inventore provident!
+        Consequatur, aut, veritatis unde illo placeat rerum numquam corrupti
+        iusto beatae velit ducimus provident dolorum molestias voluptatum
+        exercitationem est quisquam debitis ex saepe quasi sunt omnis
+        accusantium. Maiores alias ratione tempora nostrum sequi ipsum
+        necessitatibus velit, quidem illo, ipsam sint consequatur repellendus a
+        ut saepe repellat adipisci ab, porro quasi eos. Aliquam officiis
+        reprehenderit, placeat dignissimos nobis quidem cupiditate laborum qui
+        esse eligendi sapiente sed reiciendis molestias similique voluptate
+        suscipit eaque voluptates vel quisquam. Qui?
+      </p>
+    </section>
+    <script>
+      const nav = document.getElementsByTagName('nav')[0]
+      const offsetTop = nav.offsetTop
+
+      function fixNav(e) {
+        if (window.scrollY >= offsetTop) {
+          const padding = `${nav.offsetHeight}px`
+          document.body.style.paddingTop = padding
+          document.body.classList.add('fixed-top')
+        } else {
+          document.body.style.paddingTop = 0
+          document.body.classList.remove('fixed-top')
+        }
+      }
+      document.addEventListener('scroll', fixNav)
+    </script>
+  </body>
+</html>
