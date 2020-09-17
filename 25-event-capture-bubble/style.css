@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  height: 90vh;
+}
+
+.one {
+  background-color: thistle;
+}
+
+.two {
+  background-color: mistyrose;
+}
+.three {
+  background-color: coral;
+}
+
+div {
+  width: 100%;
+  padding: 100px;
+  box-sizing: border-box;
+}
