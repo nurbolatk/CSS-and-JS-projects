@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="body">
+    <div class="one">
+      <div class="two">
+        <div class="three"></div>
+      </div>
+    </div>
+    <script>
+      const divs = document.querySelectorAll('div')
+
+      function logText(e) {
+        e.stopPropagation()
+        console.log(this.classList.value)
+      }
+
+      document.body.addEventListener('click', logText)
+
+      divs.forEach(div =>
+        div.addEventListener('click', logText, { capture: false, once: true })
+      )
+    </script>
+  </body>
+</html>
