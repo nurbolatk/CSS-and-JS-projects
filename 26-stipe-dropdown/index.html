@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stripe dropdown</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Yes please</h1>
+    <nav class="top">
+      <div class="dropdownBackground">
+        <span class="arrow"></span>
+      </div>
+      <ul class="cool">
+        <li>
+          <a href="#!">Products</a>
+          <div class="dropdown dropdown1">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam
+            possimus quisquam impedit. Libero, magni facere excepturi explicabo
+            distinctio pariatur placeat unde aut sint vero eum veritatis soluta
+            tenetur autem numquam. Perspiciatis unde enim quasi repellendus
+            itaque provident recusandae, molestiae ducimus.
+            <hr />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis
+            ullam autem recusandae accusantium corrupti nesciunt a quis earum
+            eius cum.
+          </div>
+        </li>
+        <li>
+          <a href="#!">Developers</a>
+          <div class="dropdown dropdown2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam
+            possimus quisquam impedit. Libero, magni facere excepturi explicabo
+            distinctio pariatur placeat unde aut sint vero eum veritatis soluta
+            tenetur autem numquam. Perspiciatis unde enim quasi repellendus
+            itaque provident recusandae, molestiae ducimus.
+          </div>
+        </li>
+        <li>
+          <a href="#!">Company</a>
+          <div class="dropdown dropdown3">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam
+            possimus quisquam impedit.
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <script>
+      const triggers = document.querySelectorAll('.cool > li')
+      const nav = document.querySelector('.top')
+      const dropdownBackground = document.querySelector('.dropdownBackground')
+
+      const handleEnter = e => {
+        e.target.classList.add('trigger-enter')
+        setTimeout(() => {
+          if (e.target.classList.contains('trigger-enter'))
+            e.target.classList.add('trigger-enter-active')
+        }, 150)
+
+        const dropdown = e.target.querySelector('.dropdown')
+        const boundingRect = dropdown.getBoundingClientRect()
+        const navBoundingRect = nav.getBoundingClientRect()
+        const coords = {
+          width: boundingRect.width,
+          height: boundingRect.height,
+          y: boundingRect.top - navBoundingRect.top,
+          x: boundingRect.left - navBoundingRect.left,
+        }
+        dropdownBackground.style.width = `${coords.width}px`
+        dropdownBackground.style.height = `${coords.height}px`
+        dropdownBackground.style.transform = `translate(${coords.x}px, ${coords.y}px)`
+
+        dropdownBackground.classList.add('open')
+      }
+
+      const handleLeave = e => {
+        e.target.classList.remove('trigger-enter', 'trigger-enter-active')
+        dropdownBackground.classList.remove('open')
+      }
+
+      triggers.forEach(trigger => {
+        trigger.addEventListener('mouseenter', handleEnter)
+        trigger.addEventListener('mouseleave', handleLeave)
+      })
+    </script>
+  </body>
+</html>
