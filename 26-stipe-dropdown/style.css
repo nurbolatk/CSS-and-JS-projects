@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: lightcoral;
+  font-size: 1.6rem;
+  color: #fff;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Ubuntu, Arial, sans-serif;
+  min-height: 100vh;
+}
+
+nav {
+  position: relative;
+}
+
+.cool > li > a {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 2rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.cool > li {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+hr {
+  margin: 1rem;
+  border: none;
+}
+.dropdown {
+  position: absolute;
+  /* top: -20px; */
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 3px;
+  transition: all 0.3s;
+  transform: translateY(80px);
+  opacity: 0;
+  display: none;
+  color: #333;
+}
+
+.trigger-enter .dropdown {
+  display: block;
+}
+.trigger-enter-active .dropdown {
+  opacity: 1;
+}
+
+.dropdown1 {
+  min-width: 500px;
+}
+
+.dropdown2 {
+  min-width: 300px;
+}
+
+.dropdownBackground {
+  background-color: white;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s, opacity 0.1s;
+  transform-origin: 50% 0;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+}
+
+.dropdownBackground.open {
+  opacity: 1;
+}
+.arrow {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: white;
+  transform: translateY(-50%) rotate(45deg);
+}
