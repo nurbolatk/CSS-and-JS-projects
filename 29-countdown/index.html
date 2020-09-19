@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <button data-time="20">20 Secs</button>
+      <button data-time="300">Work 5</button>
+      <button data-time="900">Quick 15</button>
+      <button data-time="1200">Snack 20</button>
+      <button data-time="3600">Lunch Break</button>
+      <form name="countdownForm">
+        <input type="number" name="minutes" placeholder="Enter minutes" />
+      </form>
+    </header>
+    <main>
+      <div class="time-left"></div>
+      <div class="timer-ends"></div>
+    </main>
+    <script>
+      let countdown
+      const timeLeftDiv = document.querySelector('.time-left')
+      const timerEndsDiv = document.querySelector('.timer-ends')
+      const buttons = document.querySelectorAll('[data-time]')
+
+      function timer(seconds) {
+        clearInterval(countdown)
+        const now = Date.now()
+        const then = now + seconds * 1000
+        displayTimeLeft(seconds)
+        displayTimerEnds(then)
+
+        countdown = setInterval(() => {
+          const secondsLeft = Math.round((then - Date.now()) / 1000)
+          if (secondsLeft < 0) {
+            clearInterval(countdown)
+            return
+          }
+          displayTimeLeft(secondsLeft)
+        }, 1000)
+      }
+
+      function displayTimeLeft(secondsLeft) {
+        const hours = Math.floor(secondsLeft / 3600)
+        const minutes = Math.floor((secondsLeft - hours * 3600) / 60)
+        const seconds = secondsLeft % 60
+        const display = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`
+        timeLeftDiv.textContent = display
+        document.title = display
+      }
+
+      function pad(number) {
+        if (number < 10) {
+          return `0${number}`
+        }
+        return number.toString()
+      }
+
+      function displayTimerEnds(timestamp) {
+        const date = new Date(timestamp)
+        const hours = date.getHours()
+        const minutes = date.getMinutes()
+        timerEndsDiv.textContent = `Be Back at ${pad(hours)}:${pad(minutes)}`
+      }
+
+      buttons.forEach(btn =>
+        btn.addEventListener('click', e => {
+          const time = parseInt(e.currentTarget.dataset.time)
+          timer(time)
+        })
+      )
+
+      document.countdownForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const minutes = e.currentTarget.minutes.value
+        if (!!minutes) {
+          timer(parseInt(minutes) * 60)
+        }
+        e.currentTarget.reset()
+      })
+    </script>
+  </body>
+</html>
