@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speed</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <video
+      src="../11-html-video-player/sample.mp4"
+      type="video/mp4"
+      controls
+    ></video>
+    <div class="speed-bar">
+      <div class="speed-bar-value">1x</div>
+    </div>
+    <script>
+      const bar = document.querySelector('.speed-bar')
+      const barValue = bar.querySelector('.speed-bar-value')
+      const video = document.getElementsByTagName('video')[0]
+      const min = 0.4
+      const max = 4
+      const defaultValue = 1
+      const defaultHeight =
+        (defaultValue / (max - min)) * (bar.offsetHeight - 20)
+
+      barValue.style.height = `${defaultHeight}px`
+      console.dir(defaultHeight)
+      bar.addEventListener('mousemove', e => {
+        const y = e.pageY - bar.offsetTop
+        const height = y > 20 ? y : 20
+        barValue.style.height = `${height}px`
+        const percentage = (height - 20) / (bar.offsetHeight - 20)
+        const playbackRate = percentage * (max - min) + min
+        console.log(playbackRate.toFixed(1), Math.round(percentage * 100))
+        video.playbackRate = playbackRate
+        barValue.textContent = `${playbackRate.toFixed(1)}x`
+      })
+    </script>
+  </body>
+</html>
