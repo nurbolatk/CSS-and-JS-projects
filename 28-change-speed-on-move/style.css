@@ -28,6 +28,14 @@ video {
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.1);
   border: 1px solid white;
   overflow: hidden;
+  transform: scale(0.98);
+  transition: all 0.3s;
+  cursor: ns-resize;
+}
+
+.speed-bar-active {
+  transform: scale(1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .speed-bar-value {
@@ -39,4 +47,5 @@ video {
   color: white;
   font-weight: 600;
   text-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
+  user-select: none;
 }
