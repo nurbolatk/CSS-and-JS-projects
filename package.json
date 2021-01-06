@@ -7,7 +7,7 @@
     "dev": "parcel index.html",
     "populate": "node populateProjects.js",
     "start": "npm run populate && npm run dev",
-    "build": "parcel build index.html"
+    "build": "npm run populate && parcel build index.html"
   },
   "repository": {
     "type": "git",

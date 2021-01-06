@@ -12,25 +12,33 @@ const template = `
 `
 function createProjectCard(name) {
   return `
-  <div class="card">
-    <img src="./23-voiceinator/23.png" alt="Voicenator" class="project-img" />
+  <a href="./${name}/index.html">
+    <div class="card">
+    <img src="https://picsum.photos/384/216" alt="Voicenator" class="project-img" />
     <div class="card-body">
-      <a href="./${name}/index.html">Project 23 - name</a>
+        <h4>${name}</h4>
+      </div>
     </div>
-  </div>
+  </a>
 `
 }
 let projectsHTML = ''
 
-const files = fs.readdirSync(rootFolder)
-files.forEach(file => {
-  const stats = fs.statSync(file)
-  if (stats.isDirectory() && /^\d+/.test(file)) {
-    projectsHTML += createProjectCard(file)
-  }
-})
-
 try {
+  const files = fs.readdirSync(rootFolder)
+  const folders = files.filter(file => {
+    const stats = fs.statSync(file)
+    return stats.isDirectory() && /^\d+/.test(file)
+  })
+  folders.sort((a, b) => {
+    const orderOfA = parseInt(/^(\d+)./.exec(a)[1])
+    const orderOfB = parseInt(/^(\d+)./.exec(b)[1])
+    return orderOfA - orderOfB
+  })
+  folders.forEach(folder => {
+    projectsHTML += createProjectCard(folder)
+  })
+
   const data = fs.readFileSync('index.html', 'utf8')
   fs.writeFileSync(
     'index.html',
