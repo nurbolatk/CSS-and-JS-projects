@@ -1,0 +1,23 @@
+{
+  "name": "css-and-js-projects",
+  "version": "1.0.0",
+  "description": "My implementation of Wes Bos's 30 days of Javascript course",
+  "main": "index.html",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurbolatk/CSS-and-JS-projects.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nurbolatk/CSS-and-JS-projects/issues"
+  },
+  "homepage": "https://github.com/nurbolatk/CSS-and-JS-projects#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
