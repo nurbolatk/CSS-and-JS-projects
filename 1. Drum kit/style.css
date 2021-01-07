@@ -29,6 +29,8 @@ body {
   color: white;
   transition: all 0.07s;
   text-shadow: 0 0 0.5rem black;
+  outline: none;
+  cursor: pointer;
 }
 
 .key kbd {
