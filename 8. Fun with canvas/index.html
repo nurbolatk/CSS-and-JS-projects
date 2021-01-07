@@ -7,15 +7,14 @@
     <style>
       body {
         margin: 0;
-        /* padding: 0;
-        box-sizing: border-box; */
       }
     </style>
   </head>
   <body>
-    <canvas id="pane" width="800" height="800"></canvas>
+    <canvas id="pane"></canvas>
     <script>
       const canvas = document.getElementById('pane')
+      console.log({ width: window.innerWidth, height: window.innerHeight })
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       const ctx = canvas.getContext('2d')
@@ -59,6 +58,11 @@
         draw(e)
       })
       canvas.addEventListener('mouseup', () => (isDrawing = false))
+
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+      })
     </script>
   </body>
 </html>
