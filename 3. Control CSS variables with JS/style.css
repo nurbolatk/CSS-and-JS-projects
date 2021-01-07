@@ -45,6 +45,7 @@ select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
+  outline: none;
 }
 
 .super-form {
@@ -73,6 +74,12 @@ select {
   background-color: white;
   border: 1px solid gray;
   border-radius: calc(var(--border-radius) * 0.5);
+  transition: all 0.2s;
+}
+
+.super-form input:focus,
+.super-form select:focus {
+  border: 1px solid var(--accent-color);
 }
 
 .super-form input::placeholder {
