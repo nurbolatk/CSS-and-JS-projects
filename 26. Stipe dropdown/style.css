@@ -106,7 +106,7 @@ hr {
   transform: translateY(-50%) rotate(45deg);
 }
 
-@media (max-width: 500px) {
+@media screen and (max-width: 500px) {
   nav {
     height: 100vh;
   }
@@ -121,5 +121,9 @@ hr {
 
   .dropdown2 {
     min-width: 100px;
+  }
+
+  .dropdown3 {
+    transform: translateY(-100%);
   }
 }

@@ -71,6 +71,16 @@
         dropdownBackground.style.transform = `translate(${coords.x}px, ${coords.y}px)`
 
         dropdownBackground.classList.add('open')
+        // TODO: Hack, fix later
+        if (window.matchMedia('screen and (max-width: 500px)').matches) {
+          if (dropdown.classList.contains('dropdown3')) {
+            dropdownBackground.querySelector('.arrow').style.transform =
+              'translateY(620%) rotate(45deg)'
+          } else {
+            dropdownBackground.querySelector('.arrow').style.transform =
+              'translateY(-50%) rotate(45deg)'
+          }
+        }
       }
 
       const handleLeave = e => {
