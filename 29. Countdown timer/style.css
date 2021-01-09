@@ -36,6 +36,7 @@ header {
 
 header > * {
   flex: 1 0 200px;
+  height: 6.9rem;
 }
 
 button {
