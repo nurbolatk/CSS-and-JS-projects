@@ -2,17 +2,19 @@ body {
   background-color: slateblue;
   font-size: 1.3rem;
   line-height: 1.4;
+  margin: 0;
 }
 
 main {
   max-width: 720px;
   width: 95%;
-  margin: 6rem auto;
+  margin: 3rem auto;
   background-color: white;
   border-radius: 3px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   text-align: justify;
+  overflow: hidden;
 }
 
 h1 {
@@ -32,6 +34,7 @@ h1 {
 img {
   display: inline-block;
   margin-bottom: 2rem;
+  max-width: 100%;
 }
 
 .slide-in {
@@ -48,4 +51,20 @@ img {
 .slide-in.active {
   transform: translateX(0) scale(1);
   opacity: 1;
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 1rem;
+  }
+
+  .align-left {
+    float: left;
+    margin-right: 0.6rem;
+  }
+
+  .align-right {
+    float: right;
+    margin-left: 0.6rem;
+  }
 }

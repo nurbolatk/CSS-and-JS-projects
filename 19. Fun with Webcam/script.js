@@ -56,6 +56,8 @@ function takePhoto() {
   strip.insertAdjacentElement('beforeend', link)
 }
 
+document.querySelector('.control').addEventListener('click', takePhoto)
+
 function shiftRGB(pixels) {
   for (let i = 0; i < pixels.data.length; i += 4) {
     pixels.data[i - 150] = pixels.data[i + 0] // RED

@@ -8,42 +8,42 @@
   </head>
   <body>
     <div class="drums">
-      <div data-key="65" class="key">
+      <button data-key="65" class="key">
         <kbd>A</kbd>
         <span>CLAP</span>
-      </div>
-      <div data-key="83" class="key">
+      </button>
+      <button data-key="83" class="key">
         <kbd>S</kbd>
         <span>HIHAT</span>
-      </div>
-      <div data-key="68" class="key">
+      </button>
+      <button data-key="68" class="key">
         <kbd>D</kbd>
         <span>KICK</span>
-      </div>
-      <div data-key="70" class="key">
+      </button>
+      <button data-key="70" class="key">
         <kbd>F</kbd>
         <span>OPENHAT</span>
-      </div>
-      <div data-key="71" class="key">
+      </button>
+      <button data-key="71" class="key">
         <kbd>G</kbd>
         <span>BOOM</span>
-      </div>
-      <div data-key="72" class="key">
+      </button>
+      <button data-key="72" class="key">
         <kbd>H</kbd>
         <span>RIDE</span>
-      </div>
-      <div data-key="74" class="key">
+      </button>
+      <button data-key="74" class="key">
         <kbd>J</kbd>
         <span>SNARE</span>
-      </div>
-      <div data-key="75" class="key">
+      </button>
+      <button data-key="75" class="key">
         <kbd>K</kbd>
         <span>TOM</span>
-      </div>
-      <div data-key="76" class="key">
+      </button>
+      <button data-key="76" class="key">
         <kbd>L</kbd>
         <span>TINK</span>
-      </div>
+      </button>
     </div>
 
     <audio data-key="65" src="./assets/sounds/clap.wav"></audio>
@@ -57,15 +57,13 @@
     <audio data-key="76" src="./assets/sounds/tink.wav"></audio>
 
     <script>
-      function playSound(e) {
-        const sound = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+      function playSound(keyElement, keyCode) {
+        const sound = document.querySelector(`audio[data-key="${keyCode}"]`)
         if (!sound) return
         sound.currentTime = 0
         sound.play()
-        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`)
-        key.classList.add('playing')
+        keyElement.classList.add('playing')
       }
-      document.addEventListener('keydown', playSound)
 
       function removeClass(e) {
         if (e.propertyName !== 'transform') return
@@ -73,7 +71,20 @@
       }
 
       const keys = document.querySelectorAll('.key')
-      keys.forEach(key => key.addEventListener('transitionend', removeClass))
+
+      document.addEventListener('keydown', e =>
+        playSound(
+          document.querySelector(`.key[data-key="${e.keyCode}"]`),
+          e.keyCode
+        )
+      )
+
+      keys.forEach(key => {
+        key.addEventListener('click', e =>
+          playSound(e.currentTarget, e.currentTarget.dataset.key)
+        )
+        key.addEventListener('transitionend', removeClass)
+      })
     </script>
   </body>
 </html>

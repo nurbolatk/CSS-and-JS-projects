@@ -92,3 +92,14 @@ body {
 .item:nth-child(odd) {
   transform: scaleX(1.31) rotateY(-40deg);
 }
+
+@media (max-width: 500px) {
+  .items {
+    height: 600px;
+  }
+
+  .item {
+    width: 200px;
+    height: calc(100% - 20px);
+  }
+}

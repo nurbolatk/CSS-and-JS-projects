@@ -105,3 +105,25 @@ hr {
   background: white;
   transform: translateY(-50%) rotate(45deg);
 }
+
+@media screen and (max-width: 500px) {
+  nav {
+    height: 100vh;
+  }
+  nav ul {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .dropdown1 {
+    min-width: 200px;
+  }
+
+  .dropdown2 {
+    min-width: 100px;
+  }
+
+  .dropdown3 {
+    transform: translateY(-100%);
+  }
+}
