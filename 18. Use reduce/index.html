@@ -91,6 +91,9 @@
       const p = document.createElement('p')
       p.textContent = `Total time is ${hours}:${mins}:${secondsLeft}`
       document.querySelector('.videos').insertAdjacentElement('afterend', p)
+      const pTodo = document.createElement('p')
+      pTodo.textContent = 'TODO: Find a cooler use for array.reduce()'
+      p.insertAdjacentElement('afterend', pTodo)
     </script>
   </body>
 </html>
