@@ -103,4 +103,9 @@ img {
   right: 0;
   top: 0;
   cursor: pointer;
+  background: none;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
 }
