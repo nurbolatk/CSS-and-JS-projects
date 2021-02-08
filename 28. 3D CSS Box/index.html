@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D CSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scene">
+      <div class="cube show-back">
+        <div class="cube__face cube__face--front">front</div>
+        <div class="cube__face cube__face--back">back</div>
+        <div class="cube__face cube__face--left">left</div>
+        <div class="cube__face cube__face--right">right</div>
+        <div class="cube__face--half cube__face--top-1">top 1</div>
+        <div class="cube__face--half cube__face--top-2">top 2</div>
+        <div class="cube__face cube__face--bottom">bottom</div>
+        <div class="gift">
+          <img src="./sample.jpg" alt="gift" />
+          <p>Lorem ipsum dolor sit, amet fsjk dsfjk asdf sdfj .</p>
+        </div>
+      </div>
+    </div>
+
+    <button class="open-box">Open box</button>
+
+    <input type="range" id="rotation" min="0" max="270" />
+    <script src="app.js"></script>
+  </body>
+</html>
