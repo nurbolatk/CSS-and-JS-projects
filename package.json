@@ -22,6 +22,7 @@
   "devDependencies": {
     "jsdom": "^16.4.0",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-imagemin": "^4.0.2"
+    "parcel-plugin-imagemin": "^4.0.2",
+    "sass": "^1.43.4"
   }
 }
