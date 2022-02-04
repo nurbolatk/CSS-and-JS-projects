@@ -1,17 +1,17 @@
 const fs = require('fs')
 const rootFolder = './'
 
-function createProjectCard(name) {
+function createProjectCard(name, linkToDemo, linkToGithub) {
   return `
   <div class="card">
-    <a href="./${name}/index.html" class="block">
+    <a href="${linkToDemo}" class="block">
       <img src="https://picsum.photos/id/785/384/216" alt="${name}" class="rounded mb-4" />
     </a>
     <div class="flex items-baseline justify-between">
       <h4 class="text-xl flex-1">
-        <a href="./${name}/index.html" class="block hover:underline">${name}</a>
+        <a href="${linkToDemo}" class="block hover:underline">${name}</a>
       </h4>
-      <a href="https://github.com/nurbolatk/CSS-and-JS-projects/tree/master/${name}" target="_blank" rel="noopener noreferrer" class="underline text-lg hover:text-indigo-500">Github</a>
+      <a href="${linkToGithub}" target="_blank" rel="noopener noreferrer" class="underline text-lg hover:text-indigo-500">Github</a>
     </div>
   </div>
 `
@@ -33,8 +33,11 @@ try {
     return orderOfA - orderOfB
   })
 
-  folders.forEach(folder => {
-    projectsHTML += createProjectCard(folder)
+  folders.forEach((folder, i) => {
+    const name = `${i+1}. ${folder.replace(/\d*\s*.\s*/, '')}`
+    const linkToDemo = `./${folder}/index.html`
+    const linkToGithub = `https://github.com/nurbolatk/CSS-and-JS-projects/tree/master/${folder}`
+    projectsHTML += createProjectCard(name, linkToDemo, linkToGithub)
   })
 
   const data = fs.readFileSync('index.html', 'utf8')
