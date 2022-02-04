@@ -3,14 +3,17 @@ const rootFolder = './'
 
 function createProjectCard(name) {
   return `
-  <a href="./${name}/index.html">
-    <div class="card">
-    <img src="https://picsum.photos/id/785/384/216" alt="Voicenator" class="project-img" />
-    <div class="card-body">
-        <h4>${name}</h4>
-      </div>
+  <div class="card">
+    <a href="./${name}/index.html" class="block">
+      <img src="https://picsum.photos/id/785/384/216" alt="${name}" class="rounded mb-4" />
+    </a>
+    <div class="flex items-baseline justify-between">
+      <h4 class="text-xl flex-1">
+        <a href="./${name}/index.html" class="block hover:underline">${name}</a>
+      </h4>
+      <a href="https://github.com/nurbolatk/CSS-and-JS-projects/tree/master/${name}" target="_blank" rel="noopener noreferrer" class="underline text-lg hover:text-indigo-500">Github</a>
     </div>
-  </a>
+  </div>
 `
 }
 

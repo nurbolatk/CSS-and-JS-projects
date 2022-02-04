@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "My implementation of Wes Bos's 30 days of Javascript course",
   "scripts": {
-    "dev": "parcel src/index.html",
+    "dev": "parcel index.html",
     "populate": "node populateProjects.js",
     "start": "npm run populate && npm run dev",
-    "build": "npm run populate && parcel build src/index.html"
+    "build": "npm run populate && parcel build index.html"
   },
   "repository": {
     "type": "git",
