@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "My implementation of Wes Bos's 30 days of Javascript course",
   "scripts": {
-    "dev": "parcel index.html",
+    "dev": "parcel src/index.html",
     "populate": "node populateProjects.js",
     "start": "npm run populate && npm run dev",
-    "build": "npm run populate && parcel build index.html"
+    "build": "npm run populate && parcel build src/index.html"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,10 @@
   "homepage": "https://github.com/nurbolatk/CSS-and-JS-projects#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.2.1",
-    "jsdom": "^16.4.0",
+    "autoprefixer": "^10.4.2",
     "parcel": "^2.2.1",
     "parcel-plugin-imagemin": "^4.0.2",
+    "postcss": "^8.4.6",
     "sass": "^1.43.4",
     "tailwindcss": "^3.0.18"
   }
